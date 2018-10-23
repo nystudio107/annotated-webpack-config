@@ -48,7 +48,7 @@ const configureBabelLoader = (browserList) => {
     };
 };
 
-// Configure Entries from package.json
+// Configure Entries
 const configureEntries = () => {
     let entries = {};
     for (const [key, value] of Object.entries(settings.entries)) {
