@@ -14,7 +14,7 @@ const WebpackNotifierPlugin = require('webpack-notifier');
 
 // config files
 const pkg = require('./package.json');
-
+const settings = require('./webpack.settings.js');
 
 // Configure Babel loader
 const configureBabelLoader = (browserList) => {
@@ -51,8 +51,8 @@ const configureBabelLoader = (browserList) => {
 // Configure Entries from package.json
 const configureEntries = () => {
     let entries = {};
-    for (const [key, value] of Object.entries(pkg.project.entries)) {
-        entries[key] = path.resolve(__dirname, pkg.project.paths.src.js + value);
+    for (const [key, value] of Object.entries(settings.entries)) {
+        entries[key] = path.resolve(__dirname, settings.paths.src.js + value);
     }
 
     return entries;
@@ -62,7 +62,7 @@ const configureEntries = () => {
 const configureManifest = (fileName) => {
     return {
         fileName: fileName,
-        basePath: pkg.project.manifestConfig.basePath,
+        basePath: settings.manifestConfig.basePath,
         map: (file) => {
             file.name = file.name.replace(/(\.[a-f0-9]{32})(\..*)$/, '$2');
             return file;
@@ -83,8 +83,8 @@ const baseConfig = {
     name: pkg.name,
     entry: configureEntries(),
     output: {
-        path: path.resolve(__dirname, pkg.project.paths.dist.base),
-        publicPath: pkg.project.urls.publicPath
+        path: path.resolve(__dirname, settings.paths.dist.base),
+        publicPath: settings.urls.publicPath
     },
     resolve: {
         alias: {
@@ -106,12 +106,12 @@ const baseConfig = {
 const legacyConfig = {
     module: {
         rules: [
-            configureBabelLoader(Object.values(pkg.project.babelConfig.legacyBrowsers)),
+            configureBabelLoader(Object.values(settings.babelConfig.legacyBrowsers)),
         ],
     },
     plugins: [
         new CopyWebpackPlugin(
-            pkg.project.copyWebpackConfig
+            settings.copyWebpackConfig
         ),
         new ManifestPlugin(
             configureManifest('manifest-legacy.json')
@@ -123,7 +123,7 @@ const legacyConfig = {
 const modernConfig = {
     module: {
         rules: [
-            configureBabelLoader(Object.values(pkg.project.babelConfig.modernBrowsers)),
+            configureBabelLoader(Object.values(settings.babelConfig.modernBrowsers)),
         ],
     },
     plugins: [

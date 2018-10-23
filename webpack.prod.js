@@ -29,6 +29,7 @@ const WorkboxPlugin = require('workbox-webpack-plugin');
 // config files
 const pkg = require('./package.json');
 const common = require('./webpack.common.js');
+const settings = require('./webpack.settings.js');
 
 // Custom PurgeCSS extractor for Tailwind that allows special characters in
 // class names.
@@ -45,12 +46,12 @@ const configureBanner = () => {
     return {
         banner: [
             '/*!',
-            ' * @project        ' + pkg.project.name,
+            ' * @project        ' + settings.name,
             ' * @name           ' + '[filebase]',
             ' * @author         ' + pkg.author.name,
             ' * @build          ' + moment().format('llll') + ' ET',
             ' * @release        ' + git.long() + ' [' + git.branch() + ']',
-            ' * @copyright      Copyright (c) ' + moment().format('YYYY') + ' ' + pkg.project.copyright,
+            ' * @copyright      Copyright (c) ' + moment().format('YYYY') + ' ' + settings.copyright,
             ' *',
             ' */',
             ''
@@ -77,15 +78,15 @@ const configureBundleAnalyzer = (buildType) => {
 
 // Configure Critical CSS
 const configureCriticalCss = () => {
-    return (pkg.project.criticalCssConfig.pages.map((row) => {
-            const criticalSrc = pkg.project.urls.critical + row.url;
-            const criticalDest = pkg.project.criticalCssConfig.base + row.template + pkg.project.criticalCssConfig.suffix;
-            let criticalWidth = pkg.project.criticalCssConfig.criticalWidth;
-            let criticalHeight = pkg.project.criticalCssConfig.criticalHeight;
+    return (settings.criticalCssConfig.pages.map((row) => {
+            const criticalSrc = settings.urls.critical + row.url;
+            const criticalDest = settings.criticalCssConfig.base + row.template + settings.criticalCssConfig.suffix;
+            let criticalWidth = settings.criticalCssConfig.criticalWidth;
+            let criticalHeight = settings.criticalCssConfig.criticalHeight;
             // Handle Google AMP templates
-            if (row.template.indexOf(pkg.project.criticalCssConfig.ampPrefix) !== -1) {
-                criticalWidth = pkg.project.criticalCssConfig.ampCriticalWidth;
-                criticalHeight = pkg.project.criticalCssConfig.ampCriticalHeight;
+            if (row.template.indexOf(settings.criticalCssConfig.ampPrefix) !== -1) {
+                criticalWidth = settings.criticalCssConfig.ampCriticalWidth;
+                criticalHeight = settings.criticalCssConfig.ampCriticalHeight;
             }
             console.log("source: " + criticalSrc + " dest: " + criticalDest);
             return new CriticalCssPlugin({
@@ -105,7 +106,7 @@ const configureCriticalCss = () => {
 // Configure Clean webpack
 const configureCleanWebpack = () => {
     return {
-        root: path.resolve(__dirname, pkg.project.paths.dist.base),
+        root: path.resolve(__dirname, settings.paths.dist.base),
         verbose: true,
         dry: false
     };
@@ -181,7 +182,7 @@ const configureOptimization = (buildType) => {
                     default: false,
                     common: false,
                     styles: {
-                        name: pkg.project.vars.cssName,
+                        name: settings.vars.cssName,
                         test: /\.(pcss|css|vue)$/,
                         chunks: 'all',
                         enforce: true
@@ -255,18 +256,18 @@ const configurePostcssLoader = (buildType) => {
 const configurePurgeCss = () => {
     let paths = [];
     // Configure whitelist paths
-    for (const [key, value] of Object.entries(pkg.project.purgeCssConfig.paths)) {
+    for (const [key, value] of Object.entries(settings.purgeCssConfig.paths)) {
         paths.push(path.join(__dirname, value));
     }
 
     return {
         paths: glob.sync(paths),
-        whitelist: WhitelisterPlugin(pkg.project.purgeCssConfig.whitelist),
-        whitelistPatterns: pkg.project.purgeCssConfig.whitelistPatterns,
+        whitelist: WhitelisterPlugin(settings.purgeCssConfig.whitelist),
+        whitelistPatterns: settings.purgeCssConfig.whitelistPatterns,
         extractors: [
             {
                 extractor: TailwindExtractor,
-                extensions: pkg.project.purgeCssConfig.extensions
+                extensions: settings.purgeCssConfig.extensions
             }
         ]
     };
@@ -284,8 +285,8 @@ const configureTerser = () => {
 // Configure Webapp webpack
 const configureWebapp = () => {
     return {
-        logo: pkg.project.webappConfig.logo,
-        prefix: pkg.project.webappConfig.prefix,
+        logo: settings.webappConfig.logo,
+        prefix: settings.webappConfig.prefix,
         cache: false,
         inject: 'force',
         favicons: {
@@ -293,14 +294,14 @@ const configureWebapp = () => {
             appDescription: pkg.description,
             developerName: pkg.author.name,
             developerURL: pkg.author.url,
-            path: pkg.project.paths.dist.base,
+            path: settings.paths.dist.base,
         }
     };
 };
 
 // Configure Workbox service worker
 const configureWorkbox = () => {
-    let config = pkg.project.workboxConfig;
+    let config = settings.workboxConfig;
     config.exclude = [
         /\.(png|jpe?g|gif|svg|webp)$/i,
         /\.map$/,
@@ -328,11 +329,11 @@ module.exports = [
                 ],
             },
             plugins: [
-                new CleanWebpackPlugin(pkg.project.paths.dist.clean,
+                new CleanWebpackPlugin(settings.paths.dist.clean,
                     configureCleanWebpack()
                 ),
                 new MiniCssExtractPlugin({
-                    path: path.resolve(__dirname, pkg.project.paths.dist.base),
+                    path: path.resolve(__dirname, settings.paths.dist.base),
                     filename: path.join('./css', '[name].[chunkhash].css'),
                 }),
                 new PurgecssPlugin(
@@ -348,11 +349,11 @@ module.exports = [
                     configureWebapp()
                 ),
                 new CreateSymlinkPlugin(
-                    pkg.project.createSymlinkConfig,
+                    settings.createSymlinkConfig,
                     true
                 ),
                 new SaveRemoteFilePlugin(
-                    pkg.project.saveRemoteFileConfig
+                    settings.saveRemoteFileConfig
                 ),
                 new BundleAnalyzerPlugin(
                     configureBundleAnalyzer(LEGACY_CONFIG),

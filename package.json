@@ -1,166 +1,31 @@
 {
-    "name": "some-project",
+    "name": "example-project",
     "version": "1.0.0",
-    "description": "Some Project brand website",
-    "keywords": [],
-    "homepage": "https://github.com/some-developer/some-project",
+    "description": "Example Project brand website",
+    "keywords": [
+        "Example",
+        "Keywords"
+    ],
+    "homepage": "https://github.com/example-developer/example-project",
     "bugs": {
-        "email": "someone@some-developer.com",
-        "url": "https://github.com/some-developer/some-project/issues"
+        "email": "someone@example-developer.com",
+        "url": "https://github.com/example-developer/example-project/issues"
     },
     "license": "SEE LICENSE IN LICENSE.md",
     "author": {
-        "name": "Some Developer",
-        "email": "someone@some-developer.com",
-        "url": "https://some-developer.com"
+        "name": "Example Developer",
+        "email": "someone@example-developer.com",
+        "url": "https://example-developer.com"
     },
     "browser": "/web/index.php",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/some-developer/some-project.git"
+        "url": "git+https://github.com/example-developer/example-project.git"
     },
     "private": true,
     "scripts": {
         "dev": "webpack-dev-server --config webpack.dev.js",
         "build": "webpack --config webpack.prod.js --progress --hide-modules"
-    },
-    "project": {
-        "name": "Seaside Style",
-        "copyright": "Seaside, Inc.",
-        "paths": {
-            "src": {
-                "base": "./src/",
-                "css": "./src/css/",
-                "js": "./src/js/"
-            },
-            "dist": {
-                "base": "./web/dist/",
-                "clean": [
-                    "./img",
-                    "./criticalcss",
-                    "./css",
-                    "./js"
-                ]
-            },
-            "templates": "./templates/"
-        },
-        "urls": {
-            "live": "https://theseasidestyle.com/",
-            "local": "http://seasidestyle.test/",
-            "critical": "http://seasidestyle.test/",
-            "publicPath": "/dist/"
-        },
-        "vars": {
-            "cssName": "styles"
-        },
-        "entries": {
-            "app": "App.js"
-        },
-        "babelConfig": {
-            "legacyBrowsers": [
-                "> 1%",
-                "last 2 versions",
-                "Firefox ESR"
-            ],
-            "modernBrowsers": [
-                "last 2 Chrome versions",
-                "not Chrome < 60",
-                "last 2 Safari versions",
-                "not Safari < 10.1",
-                "last 2 iOS versions",
-                "not iOS < 10.3",
-                "last 2 Firefox versions",
-                "not Firefox < 54",
-                "last 2 Edge versions",
-                "not Edge < 15"
-            ]
-        },
-        "copyWebpackConfig": [
-            {
-                "from": "./src/js/workbox-catch-handler.js",
-                "to": "js/[name].[ext]"
-            }
-        ],
-        "criticalCssConfig": {
-            "base": "./web/dist/criticalcss/",
-            "suffix": "_critical.min.css",
-            "criticalHeight": 1200,
-            "criticalWidth": 1200,
-            "ampPrefix": "amp_",
-            "ampCriticalHeight": 600,
-            "ampCriticalWidth": 19200,
-            "pages": [
-                {
-                    "url": "",
-                    "template": "index"
-                }
-            ]
-        },
-        "devServerConfig": {
-            "public": "http://192.168.10.10:8080",
-            "host": "0.0.0.0",
-            "poll": true
-        },
-        "manifestConfig": {
-            "basePath": ""
-        },
-        "purgeCssConfig": {
-            "paths": [
-                "./templates/**/*.{twig,html}",
-                "./src/vue/**/*.{vue,html}"
-            ],
-            "whitelist": [
-                "./src/css/components/**/*.{css,pcss}"
-            ],
-            "whitelistPatterns": [],
-            "extensions": [
-                "html",
-                "js",
-                "twig",
-                "vue"
-            ]
-        },
-        "saveRemoteFileConfig": [
-            {
-                "url": "https://www.google-analytics.com/analytics.js",
-                "filepath": "js/analytics.js"
-            }
-        ],
-        "createSymlinkConfig": [
-            {
-                "origin": "img/favicons/favicon.ico",
-                "symlink": "../favicon.ico"
-            }
-        ],
-        "webappConfig": {
-            "logo": "./src/img/favicon-src.png",
-            "prefix": "img/favicons/"
-        },
-        "workboxConfig": {
-            "swDest": "../sw.js",
-            "precacheManifestFilename": "js/precache-manifest.[manifestHash].js",
-            "importScripts": [
-                "/dist/workbox-catch-handler.js"
-            ],
-            "globDirectory": "./web/",
-            "globPatterns": [
-                "offline.html",
-                "offline.svg"
-            ],
-            "offlineGoogleAnalytics": true,
-            "runtimeCaching": [
-                {
-                    "urlPattern": "/.(?:png|jpg|jpeg|svg|webp)$/",
-                    "handler": "cacheFirst",
-                    "options": {
-                        "cacheName": "images",
-                        "expiration": {
-                            "maxEntries": 20
-                        }
-                    }
-                }
-            ]
-        }
     },
     "devDependencies": {
         "@babel/core": "^7.1.0",

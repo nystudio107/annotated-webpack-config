@@ -16,29 +16,30 @@ const dashboard = new Dashboard();
 // config files
 const pkg = require('./package.json');
 const common = require('./webpack.common.js');
+const settings = require('./webpack.settings.js');
 
 // Configure the webpack-dev-server
 const configureDevServer = (buildType) => {
     return {
-        public: pkg.project.devServerConfig.public,
-        contentBase: path.resolve(__dirname, pkg.project.paths.templates),
-        host: pkg.project.devServerConfig.host,
+        public: settings.devServerConfig.public,
+        contentBase: path.resolve(__dirname, settings.paths.templates),
+        host: settings.devServerConfig.host,
         quiet: true,
         hot: true,
         hotOnly: true,
         overlay: true,
         stats: 'errors-only',
         watchOptions: {
-            poll: pkg.project.devServerConfig.poll
+            poll: settings.devServerConfig.poll
         },
         headers: {
             'Access-Control-Allow-Origin': '*'
         },
         // Use sane to monitor all of the templates files and sub-directories
         before: (app, server) => {
-            const watcher = sane(path.join(__dirname, pkg.project.paths.templates), {
+            const watcher = sane(path.join(__dirname, settings.paths.templates), {
                 glob: ['**/*'],
-                poll: pkg.project.devServerConfig.poll,
+                poll: settings.devServerConfig.poll,
             });
             watcher.on('change', function(filePath, root, stat) {
                 console.log('  File modified:', filePath);
@@ -122,7 +123,7 @@ module.exports = [
         {
             output: {
                 filename: path.join('./js', '[name]-legacy.[hash].js'),
-                publicPath: pkg.project.devServerConfig.public + '/',
+                publicPath: settings.devServerConfig.public + '/',
             },
             mode: 'development',
             devtool: 'inline-source-map',
@@ -143,7 +144,7 @@ module.exports = [
         {
             output: {
                 filename: path.join('./js', '[name].[hash].js'),
-                publicPath: pkg.project.devServerConfig.public + '/',
+                publicPath: settings.devServerConfig.public + '/',
             },
             mode: 'development',
             devtool: 'inline-source-map',
