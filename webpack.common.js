@@ -106,7 +106,7 @@ const baseConfig = {
 const legacyConfig = {
     module: {
         rules: [
-            configureBabelLoader(Object.values(settings.babelConfig.legacyBrowsers)),
+            configureBabelLoader(Object.values(pkg.browserslist.legacyBrowsers)),
         ],
     },
     plugins: [
@@ -123,7 +123,7 @@ const legacyConfig = {
 const modernConfig = {
     module: {
         rules: [
-            configureBabelLoader(Object.values(settings.babelConfig.modernBrowsers)),
+            configureBabelLoader(Object.values(pkg.browserslist.modernBrowsers)),
         ],
     },
     plugins: [

@@ -27,6 +27,30 @@
         "dev": "webpack-dev-server --config webpack.dev.js",
         "build": "webpack --config webpack.prod.js --progress --hide-modules"
     },
+    "browserslist": {
+        "production": [
+            "> 1%",
+            "last 2 versions",
+            "Firefox ESR"
+        ],
+        "legacyBrowsers": [
+            "> 1%",
+            "last 2 versions",
+            "Firefox ESR"
+        ],
+        "modernBrowsers": [
+            "last 2 Chrome versions",
+            "not Chrome < 60",
+            "last 2 Safari versions",
+            "not Safari < 10.1",
+            "last 2 iOS versions",
+            "not iOS < 10.3",
+            "last 2 Firefox versions",
+            "not Firefox < 54",
+            "last 2 Edge versions",
+            "not Edge < 15"
+        ]
+    },
     "devDependencies": {
         "@babel/core": "^7.1.0",
         "@babel/plugin-syntax-dynamic-import": "^7.0.0",
