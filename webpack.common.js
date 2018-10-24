@@ -36,9 +36,9 @@ const configureBabelLoader = (browserList) => {
                     ],
                 ],
                 plugins: [
-                    '@babel/syntax-dynamic-import',
+                    '@babel/plugin-syntax-dynamic-import',
                     [
-                        "@babel/transform-runtime", {
+                        "@babel/plugin-transform-runtime", {
                         "regenerator": true
                     }
                     ]
