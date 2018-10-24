@@ -21,16 +21,16 @@ const settings = require('./webpack.settings.js');
 // Configure the webpack-dev-server
 const configureDevServer = (buildType) => {
     return {
-        public: settings.devServerConfig.public,
+        public: settings.devServerConfig.public(),
         contentBase: path.resolve(__dirname, settings.paths.templates),
-        host: settings.devServerConfig.host,
+        host: settings.devServerConfig.host(),
         quiet: true,
         hot: true,
         hotOnly: true,
         overlay: true,
         stats: 'errors-only',
         watchOptions: {
-            poll: settings.devServerConfig.poll
+            poll: settings.devServerConfig.poll()
         },
         headers: {
             'Access-Control-Allow-Origin': '*'
@@ -39,7 +39,7 @@ const configureDevServer = (buildType) => {
         before: (app, server) => {
             const watcher = sane(path.join(__dirname, settings.paths.templates), {
                 glob: ['**/*'],
-                poll: settings.devServerConfig.poll,
+                poll: settings.devServerConfig.poll(),
             });
             watcher.on('change', function(filePath, root, stat) {
                 console.log('  File modified:', filePath);
@@ -123,7 +123,7 @@ module.exports = [
         {
             output: {
                 filename: path.join('./js', '[name]-legacy.[hash].js'),
-                publicPath: settings.devServerConfig.public + '/',
+                publicPath: settings.devServerConfig.public() + '/',
             },
             mode: 'development',
             devtool: 'inline-source-map',
@@ -144,7 +144,7 @@ module.exports = [
         {
             output: {
                 filename: path.join('./js', '[name].[hash].js'),
-                publicPath: settings.devServerConfig.public + '/',
+                publicPath: settings.devServerConfig.public() + '/',
             },
             mode: 'development',
             devtool: 'inline-source-map',

@@ -1,3 +1,8 @@
+// webpack.settings.js - webpack settings config
+
+// node modules
+require('dotenv').config();
+
 // Webpack settings exports
 // noinspection WebpackConfigHighlighting
 module.exports = {
@@ -54,9 +59,9 @@ module.exports = {
         ]
     },
     devServerConfig: {
-        public: "http://192.168.10.10:8080",
-        host: "0.0.0.0",
-        poll: true
+        public: () => process.env.DEVSERVER_PUBLIC || "http://localhost:8080",
+        host: () => process.env.DEVSERVER_HOST || "localhost",
+        poll: () => process.env.DEVSERVER_POLL || false,
     },
     manifestConfig: {
         basePath: ""

@@ -67,6 +67,7 @@
         "critical-css-webpack-plugin": "^0.2.0",
         "css-loader": "^1.0.0",
         "cssnano": "^4.1.0",
+        "dotenv": "^6.1.0",
         "file-loader": "^2.0.0",
         "git-rev-sync": "^1.12.0",
         "glob-all": "^3.1.0",
