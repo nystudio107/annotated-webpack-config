@@ -27,8 +27,8 @@ const WhitelisterPlugin = require('purgecss-whitelister');
 const WorkboxPlugin = require('workbox-webpack-plugin');
 
 // config files
-const pkg = require('./package.json');
 const common = require('./webpack.common.js');
+const pkg = require('./package.json');
 const settings = require('./webpack.settings.js');
 
 // Custom PurgeCSS extractor for Tailwind that allows special characters in
