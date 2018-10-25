@@ -125,7 +125,7 @@ const configureHtml = () => {
 const configureImageLoader = (buildType) => {
     if (buildType === LEGACY_CONFIG) {
         return {
-            test: /\.(png|jpe?g|gif|svg)$/i,
+            test: /\.(png|jpe?g|gif|svg|webp)$/i,
             use: [
                 {
                     loader: 'file-loader',
@@ -138,7 +138,7 @@ const configureImageLoader = (buildType) => {
     }
     if (buildType === MODERN_CONFIG) {
         return {
-            test: /\.(png|jpe?g|gif|svg)$/i,
+            test: /\.(png|jpe?g|gif|svg|webp)$/i,
             use: [
                 {
                     loader: 'file-loader',
@@ -302,11 +302,6 @@ const configureWebapp = () => {
 // Configure Workbox service worker
 const configureWorkbox = () => {
     let config = settings.workboxConfig;
-    config.exclude = [
-        /\.(png|jpe?g|gif|svg|webp)$/i,
-        /\.map$/,
-        /^manifest.*\\.js(?:on)?$/,
-    ];
 
     return config;
 };
