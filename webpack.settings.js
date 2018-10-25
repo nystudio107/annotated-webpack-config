@@ -49,8 +49,8 @@ module.exports = {
         criticalHeight: 1200,
         criticalWidth: 1200,
         ampPrefix: "amp_",
-        ampCriticalHeight: 600,
-        ampCriticalWidth: 19200,
+        ampCriticalHeight: 19200,
+        ampCriticalWidth: 600,
         pages: [
             {
                 url: "",
