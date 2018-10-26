@@ -58,6 +58,21 @@ const configureEntries = () => {
     return entries;
 };
 
+// Configure Fonts loader
+const configureFontsLoader = () => {
+    return {
+        test: /\.(ttf|eot|woff2?)$/i,
+        use: [
+            {
+                loader: 'file-loader',
+                options: {
+                    name: 'fonts/[name].[ext]'
+                }
+            }
+        ]
+    };
+};
+
 // Configure Manifest
 const configureManifest = (fileName) => {
     return {
@@ -93,6 +108,7 @@ const baseConfig = {
     },
     module: {
         rules: [
+            configureFontsLoader(),
             configureVueLoader(),
         ],
     },
