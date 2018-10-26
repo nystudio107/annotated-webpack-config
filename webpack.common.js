@@ -58,8 +58,8 @@ const configureEntries = () => {
     return entries;
 };
 
-// Configure Fonts loader
-const configureFontsLoader = () => {
+// Configure Font loader
+const configureFontLoader = () => {
     return {
         test: /\.(ttf|eot|woff2?)$/i,
         use: [
@@ -108,7 +108,7 @@ const baseConfig = {
     },
     module: {
         rules: [
-            configureFontsLoader(),
+            configureFontLoader(),
             configureVueLoader(),
         ],
     },
