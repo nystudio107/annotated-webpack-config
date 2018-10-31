@@ -63,6 +63,7 @@ module.exports = {
         host: () => process.env.DEVSERVER_HOST || "localhost",
         poll: () => process.env.DEVSERVER_POLL || false,
         port: () => process.env.DEVSERVER_PORT || 8080,
+        https: () => process.env.DEVSERVER_HTTPS || false,
     },
     manifestConfig: {
         basePath: ""

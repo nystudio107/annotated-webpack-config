@@ -25,6 +25,7 @@ const configureDevServer = (buildType) => {
         contentBase: path.resolve(__dirname, settings.paths.templates),
         host: settings.devServerConfig.host(),
         port: settings.devServerConfig.port(),
+        https: settings.devServerConfig.https(),
         quiet: true,
         hot: true,
         hotOnly: true,
