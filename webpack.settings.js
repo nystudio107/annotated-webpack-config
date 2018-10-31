@@ -61,9 +61,9 @@ module.exports = {
     devServerConfig: {
         public: () => process.env.DEVSERVER_PUBLIC || "http://localhost:8080",
         host: () => process.env.DEVSERVER_HOST || "localhost",
-        poll: () => Boolean(process.env.DEVSERVER_POLL) || false,
+        poll: () => process.env.DEVSERVER_POLL || false,
         port: () => process.env.DEVSERVER_PORT || 8080,
-        https: () => Boolean(process.env.DEVSERVER_HTTPS) || false,
+        https: () => process.env.DEVSERVER_HTTPS || false,
     },
     manifestConfig: {
         basePath: ""
