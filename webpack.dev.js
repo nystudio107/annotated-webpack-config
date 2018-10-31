@@ -98,6 +98,9 @@ const configurePostcssLoader = (buildType) => {
                     loader: 'style-loader',
                 },
                 {
+                    loader: 'vue-style-loader',
+                },
+                {
                     loader: 'css-loader',
                     options: {
                         importLoaders: 2,
