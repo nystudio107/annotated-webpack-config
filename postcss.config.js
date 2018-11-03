@@ -6,7 +6,6 @@ module.exports = {
         require('postcss-nested-ancestors'),
         require('postcss-nested'),
         require('postcss-hexrgba'),
-        require('postcss-strip-inline-comments'),
         require('autoprefixer'),
         require('tailwindcss')('./tailwind.config.js')
     ]
