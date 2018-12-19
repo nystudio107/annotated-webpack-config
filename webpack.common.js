@@ -99,7 +99,7 @@ const baseConfig = {
     entry: configureEntries(),
     output: {
         path: path.resolve(__dirname, settings.paths.dist.base),
-        publicPath: settings.urls.publicPath
+        publicPath: settings.urls.publicPath()
     },
     resolve: {
         alias: {
