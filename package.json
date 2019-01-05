@@ -93,6 +93,7 @@
         "sane": "^4.0.1",
         "save-remote-file-webpack-plugin": "^1.0.0",
         "stylelint": "^9.9.0",
+        "stylelint-config-recommended": "^2.1.0",
         "style-loader": "^0.23.0",
         "symlink-webpack-plugin": "^0.0.4",
         "terser-webpack-plugin": "^1.1.0",
