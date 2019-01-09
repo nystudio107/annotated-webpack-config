@@ -5,6 +5,7 @@
       "ignoreAtRules": [
         "screen",
         "extends",
+        "responsive",
         "tailwind"
       ]
     }],
