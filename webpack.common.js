@@ -152,7 +152,7 @@ const modernConfig = {
 // Common module exports
 // noinspection WebpackConfigHighlighting
 module.exports = {
-    'modernConfig': merge.strategy({
+    'legacyConfig': merge.strategy({
         module: 'prepend',
         plugins: 'prepend',
     })(
