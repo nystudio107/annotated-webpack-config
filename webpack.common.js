@@ -20,7 +20,8 @@ const settings = require('./webpack.settings.js');
 const configureBabelLoader = (browserList) => {
     return {
         test: /\.js$/,
-        exclude: /node_modules/,
+        exclude: settings.babelLoaderConfig.exclude,
+        cacheDirectory: true,
         use: {
             loader: 'babel-loader',
             options: {
