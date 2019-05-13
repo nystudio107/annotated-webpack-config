@@ -1,5 +1,10 @@
 # Annotated webpack 4 config changelog
 
+## 1.0.3 - 2019-05-13
+### Changed
+* Fixed an error where the default `excludes` should be an empty array `[]` instead of an empty string
+* Added `corejs` specification in the `babel-loader` options
+
 ## 1.0.2 - 2019-05-02
 ### Changed
 * Moved the `excludes` babel-loader config to `webpack.settings.js`
