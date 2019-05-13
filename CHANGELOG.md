@@ -1,5 +1,10 @@
 # Annotated webpack 4 config changelog
 
+## 1.0.4 - 2019-05-13
+### Changed
+* Fixed an issue where the `cacheDirectory` was specified in the wrong place, resulting in obscure build errors
+* Removed `pcss` from the whitelist config, because it can't handle PostCSS
+
 ## 1.0.3 - 2019-05-13
 ### Changed
 * Fixed an error where the default `excludes` should be an empty array `[]` instead of an empty string

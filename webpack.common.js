@@ -21,10 +21,10 @@ const configureBabelLoader = (browserList) => {
     return {
         test: /\.js$/,
         exclude: settings.babelLoaderConfig.exclude,
-        cacheDirectory: true,
         use: {
             loader: 'babel-loader',
             options: {
+                cacheDirectory: true,
                 presets: [
                     [
                         '@babel/preset-env', {
