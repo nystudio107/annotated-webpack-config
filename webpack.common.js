@@ -29,6 +29,10 @@ const configureBabelLoader = (browserList) => {
                     [
                         '@babel/preset-env', {
                         modules: false,
+                        corejs: {
+                            version: 3,
+                            proposals: true
+                        },
                         useBuiltIns: 'entry',
                         targets: {
                             browsers: browserList,
