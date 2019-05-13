@@ -38,7 +38,7 @@ module.exports = {
         "app": "app.js"
     },
     babelLoaderConfig: {
-        exclude: '',
+        exclude: [],
     },
     copyWebpackConfig: [
         {
