@@ -28,25 +28,21 @@ const configureBabelLoader = (browserList) => {
                 presets: [
                     [
                         '@babel/preset-env', {
-                        modules: false,
-                        corejs: {
-                            version: 3,
-                            proposals: true
-                        },
-                        useBuiltIns: 'entry',
-                        targets: {
-                            browsers: browserList,
-                        },
-                    }
+                            modules: false,
+                            corejs:  {
+                                version: 2,
+                                proposals: true
+                            },
+                            useBuiltIns: 'usage',
+                            targets: {
+                                browsers: browserList,
+                            },
+                        }
                     ],
                 ],
                 plugins: [
                     '@babel/plugin-syntax-dynamic-import',
-                    [
-                        "@babel/plugin-transform-runtime", {
-                        "regenerator": true
-                    }
-                    ]
+                    '@babel/plugin-transform-runtime',
                 ],
             },
         },
