@@ -116,6 +116,8 @@
     "dependencies": {
         "@babel/polyfill": "^7.0.0",
         "axios": "^0.18.0",
+        "core-js": "^2.6.5",
+        "regenerator-runtime": "^0.13.2",
         "tailwindcss": "^0.7.0",
         "vue": "^2.5.17",
         "vue-confetti": "^0.4.2"

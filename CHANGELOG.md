@@ -1,5 +1,11 @@
 # Annotated webpack 4 config changelog
 
+## 1.0.5 - 2019-05-14
+### Changed
+* Use `@babel/preset-env` with `usage` polyfills as per the article [Working with Babel 7 and Webpack](https://www.thebasement.be/working-with-babel-7-and-webpack/#a-cleaner-approach)
+* By default, exclude `/(node_modules|bower_components)/` in `webpack.settings.js`
+* Added `core-js@2` and `regenerator-runtime` to the `package.json` dependencies
+
 ## 1.0.4 - 2019-05-13
 ### Changed
 * Fixed an issue where the `cacheDirectory` was specified in the wrong place, resulting in obscure build errors
