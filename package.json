@@ -1,6 +1,6 @@
 {
     "name": "example-project",
-    "version": "1.0.1",
+    "version": "1.0.6",
     "description": "Example Project brand website",
     "keywords": [
         "Example",
@@ -24,7 +24,8 @@
     },
     "private": true,
     "scripts": {
-        "dev": "webpack-dev-server --config webpack.dev.js",
+        "debug": "webpack-dev-server --config webpack.dev.js",
+        "dev": "webpack-dashboard -- webpack-dev-server --config webpack.dev.js",
         "build": "webpack --config webpack.prod.js --progress --hide-modules"
     },
     "browserslist": {
@@ -106,7 +107,7 @@
         "webpack": "^4.19.1",
         "webpack-bundle-analyzer": "^3.0.2",
         "webpack-cli": "^3.1.1",
-        "webpack-dashboard": "^2.0.0",
+        "webpack-dashboard": "^3.0.0",
         "webpack-dev-server": "^3.1.9",
         "webpack-manifest-plugin": "^2.0.4",
         "webpack-merge": "^4.1.4",
