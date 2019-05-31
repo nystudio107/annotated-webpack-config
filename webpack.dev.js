@@ -9,9 +9,7 @@ const sane = require('sane');
 const webpack = require('webpack');
 
 // webpack plugins
-const Dashboard = require('webpack-dashboard');
 const DashboardPlugin = require('webpack-dashboard/plugin');
-const dashboard = new Dashboard();
 
 // config files
 const common = require('./webpack.common.js');
@@ -164,7 +162,7 @@ module.exports = [
             },
             plugins: [
                 new webpack.HotModuleReplacementPlugin(),
-                new DashboardPlugin(dashboard.setData),
+                new DashboardPlugin(),
             ],
         }
     ),
