@@ -1,5 +1,16 @@
 # Annotated webpack 4 config changelog
 
+## 1.1.0 - 2019-05-31
+### Changed
+* Switched over to using `webpack-dashboard` `^3.0.0`
+* Added `debug` to `scripts` to bypass `webpack-dashboard` as needed
+* Removed `sane` since `webpack-dev-server ^3.3.0` fixes the sub-directory [watchContentBase issue](https://github.com/webpack/webpack-dev-server/issues/1694)
+* Update to [TailWind CSS](https://tailwindcss.com/) `^1.0.0`
+
+## 1.0.6 - 2019-05-18
+### Changed
+* Removed the now deprecated `@babel/polyfill` since we're using `core-js` directly
+
 ## 1.0.5 - 2019-05-14
 ### Changed
 * Use `@babel/preset-env` with `usage` polyfills as per the article [Working with Babel 7 and Webpack](https://www.thebasement.be/working-with-babel-7-and-webpack/#a-cleaner-approach)
