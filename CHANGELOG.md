@@ -1,8 +1,9 @@
 # Annotated webpack 4 config changelog
 
-## 1.1.1 - 2019-06-03
+## 1.1.1 - 2019-06-04
 ### Changed
 * Use destructuring for ESM module imports
+* Added `module.hot.accept()` to the example entry point `app.js`
 
 ## 1.1.0 - 2019-05-31
 ### Changed
