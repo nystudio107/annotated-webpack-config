@@ -1,5 +1,9 @@
 # Annotated webpack 4 config changelog
 
+## 1.1.2 - 2019-06-14
+### Changed
+* Updated to use the latest `clean-webpack-plugin`
+
 ## 1.1.1 - 2019-06-05
 ### Changed
 * Use destructuring for ESM module imports

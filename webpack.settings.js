@@ -17,10 +17,7 @@ module.exports = {
         dist: {
             base: "./web/dist/",
             clean: [
-                "./img",
-                "./criticalcss",
-                "./css",
-                "./js"
+                '**/*',
             ]
         },
         templates: "./templates/"
