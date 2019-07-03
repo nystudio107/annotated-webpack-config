@@ -1,5 +1,11 @@
 # Annotated webpack 4 config changelog
 
+## 1.1.3 - 2019-07-03
+### Changed
+* Updated to use `core-js` version `^3.0.0`
+* Removed explicit `new webpack.optimize.ModuleConcatenationPlugin()`
+* Moved the `CleanWebpackPlugin` to the modern build, which fixes it wiping out the modern build
+
 ## 1.1.2 - 2019-06-14
 ### Changed
 * Updated to use the latest `clean-webpack-plugin`
