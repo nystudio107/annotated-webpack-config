@@ -30,7 +30,7 @@ const configureBabelLoader = (browserList) => {
                         '@babel/preset-env', {
                             modules: false,
                             corejs:  {
-                                version: 2,
+                                version: 3,
                                 proposals: true
                             },
                             useBuiltIns: 'usage',
