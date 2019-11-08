@@ -1,5 +1,9 @@
 # Annotated webpack 4 config changelog
 
+## 1.1.4 - 2019-11-08
+### Changed
+* Added `settings.babelLoaderConfig.include`
+
 ## 1.1.3 - 2019-07-03
 ### Changed
 * Updated to use `core-js` version `^3.0.0`
