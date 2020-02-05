@@ -38,6 +38,8 @@ module.exports = {
         exclude: [
             /(node_modules|bower_components)/
         ],
+        include: [
+        ],
     },
     copyWebpackConfig: [
         {
@@ -122,7 +124,7 @@ module.exports = {
         runtimeCaching: [
             {
                 urlPattern: /\.(?:png|jpg|jpeg|svg|webp)$/,
-                handler: "cacheFirst",
+                handler: "CacheFirst",
                 options: {
                     cacheName: "images",
                     expiration: {

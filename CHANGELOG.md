@@ -1,5 +1,16 @@
 # Annotated webpack 4 config changelog
 
+## 1.1.5 - 2020-02-05
+### Changed
+* Removed entirely the concept of a "modern" and "legacy" build from the `webpack.dev.js`; we don't need legacy builds with `webpack-dev-server`
+
+### Fixed
+* Changed deprecated use of `cacheFirst` to `CacheFirst` in the Workbox config
+
+## 1.1.4 - 2019-11-08
+### Changed
+* Added `settings.babelLoaderConfig.include`
+
 ## 1.1.3 - 2019-07-03
 ### Changed
 * Updated to use `core-js` version `^3.0.0`
