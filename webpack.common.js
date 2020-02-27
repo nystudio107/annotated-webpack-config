@@ -21,7 +21,6 @@ const configureBabelLoader = (browserList) => {
     return {
         test: /\.js$/,
         exclude: settings.babelLoaderConfig.exclude,
-        include: settings.babelLoaderConfig.include,
         use: {
             loader: 'babel-loader',
             options: {
