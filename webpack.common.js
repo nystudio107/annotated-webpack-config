@@ -26,6 +26,7 @@ const configureBabelLoader = (browserList) => {
             loader: 'babel-loader',
             options: {
                 cacheDirectory: true,
+                sourceType: 'unambiguous',
                 presets: [
                     [
                         '@babel/preset-env', {
