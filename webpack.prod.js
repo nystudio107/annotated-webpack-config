@@ -6,7 +6,6 @@ const MODERN_CONFIG = 'modern';
 const git = require('git-rev-sync');
 const glob = require('glob-all');
 const merge = require('webpack-merge');
-const moment = require('moment');
 const path = require('path');
 const webpack = require('webpack');
 
@@ -45,21 +44,39 @@ class TailwindExtractor {
 
 // Configure file banner
 const configureBanner = () => {
-    return {
-        banner: [
-            '/*!',
-            ' * @project        ' + settings.name,
-            ' * @name           ' + '[filebase]',
-            ' * @author         ' + pkg.author.name,
-            ' * @build          ' + moment().format('llll') + ' ET',
-            ' * @release        ' + git.long() + ' [' + git.branch() + ']',
-            ' * @copyright      Copyright (c) ' + moment().format('YYYY') + ' ' + settings.copyright,
-            ' *',
-            ' */',
-            ''
-        ].join('\n'),
-        raw: true
-    };
+    const timestamp = new Date();
+    try {
+        return {
+            banner: [
+                '/*!',
+                ' * @project        ' + settings.name,
+                ' * @name           ' + '[filebase]',
+                ' * @author         ' + pkg.author.name,
+                ' * @build          ' + timestamp.toString(),
+                ' * @release        ' + git.long() + ' [' + git.branch() + ']',
+                ' * @copyright      Copyright (c) ' + timestamp.getFullYear() + ' ' + settings.copyright,
+                ' *',
+                ' */',
+                ''
+            ].join('\n'),
+            raw: true
+        };
+    } catch {
+        return {
+            banner: [
+                '/*!',
+                ' * @project        ' + settings.name,
+                ' * @name           ' + '[filebase]',
+                ' * @author         ' + pkg.author.name,
+                ' * @build          ' + timestamp.toString(),
+                ' * @copyright      Copyright (c) ' + timestamp.getFullYear() + ' ' + settings.copyright,
+                ' *',
+                ' */',
+                ''
+            ].join('\n'),
+            raw: true
+        };
+    }
 };
 
 // Configure Bundle Analyzer
