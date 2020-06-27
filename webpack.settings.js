@@ -98,6 +98,11 @@ module.exports = {
             symlink: "../favicon.ico"
         }
     ],
+    typescriptLoaderConfig: {
+        exclude: [
+            /(node_modules)/
+        ],
+    },
     webappConfig: {
         logo: "./src/img/favicon-src.png",
         prefix: "img/favicons/"
