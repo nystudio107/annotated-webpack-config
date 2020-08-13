@@ -167,7 +167,7 @@ const configureImageLoader = (buildType) => {
                 {
                     loader: 'file-loader',
                     options: {
-                        name: 'img/[name].[hash].[ext]'
+                        name: 'img/[name].[contenthash].[ext]'
                     }
                 }
             ]
@@ -180,7 +180,7 @@ const configureImageLoader = (buildType) => {
                 {
                     loader: 'file-loader',
                     options: {
-                        name: 'img/[name].[hash].[ext]'
+                        name: 'img/[name].[contenthash].[ext]'
                     }
                 },
                 {
@@ -349,7 +349,7 @@ module.exports = [
         common.legacyConfig,
         {
             output: {
-                filename: path.join('./js', '[name]-legacy.[chunkhash].js'),
+                filename: path.join('./js', '[name]-legacy.[contenthash].js'),
             },
             mode: 'production',
             devtool: 'source-map',
@@ -363,7 +363,7 @@ module.exports = [
             plugins: [
                 new MiniCssExtractPlugin({
                     path: path.resolve(__dirname, settings.paths.dist.base),
-                    filename: path.join('./css', '[name].[chunkhash].css'),
+                    filename: path.join('./css', '[name].[contenthash].css'),
                 }),
                 new PurgecssPlugin(
                     configurePurgeCss()
@@ -399,7 +399,7 @@ module.exports = [
         common.modernConfig,
         {
             output: {
-                filename: path.join('./js', '[name].[chunkhash].js'),
+                filename: path.join('./js', '[name].[contenthash].js'),
             },
             mode: 'production',
             devtool: 'source-map',

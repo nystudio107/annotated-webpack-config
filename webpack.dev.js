@@ -43,7 +43,7 @@ const configureImageLoader = () => {
             {
                 loader: 'file-loader',
                 options: {
-                    name: 'img/[name].[hash].[ext]'
+                    name: 'img/[name].[ext]'
                 }
             }
         ]
@@ -87,7 +87,7 @@ module.exports = merge(
     common.modernConfig,
     {
         output: {
-            filename: path.join('./js', '[name].[hash].js'),
+            filename: path.join('./js', '[name].js'),
             publicPath: settings.devServerConfig.public() + '/',
         },
         mode: 'development',

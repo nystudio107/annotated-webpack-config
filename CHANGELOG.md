@@ -1,5 +1,11 @@
 # Annotated webpack 4 config changelog
 
+## 1.1.6 - 2020.08.12
+### Changed
+* Remove `[hash]` from dev config to eliminate potential [memory errors](https://github.com/webpack/webpack-dev-server/issues/438)
+* Use `[contenthash]` in production instead of [hash or chunkhash](https://github.com/webpack/webpack.js.org/issues/2096)
+* Replaced moment.js with vanilla JavaScript
+
 ## 1.1.5 - 2020-02-05
 ### Changed
 * Removed entirely the concept of a "modern" and "legacy" build from the `webpack.dev.js`; we don't need legacy builds with `webpack-dev-server`
