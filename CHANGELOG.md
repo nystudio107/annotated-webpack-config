@@ -1,5 +1,9 @@
 # Annotated webpack 4 config changelog
 
+## 1.1.7 - 2020.08.13
+### Fixed
+* Modern config only for local dev, [fixing multi-compiler issues](https://github.com/webpack/webpack-dev-server/issues/2355) with HRM
+
 ## 1.1.6 - 2020.08.12
 ### Changed
 * Remove `[hash]` from dev config to eliminate potential [memory errors](https://github.com/webpack/webpack-dev-server/issues/438)
