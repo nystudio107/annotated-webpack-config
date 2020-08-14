@@ -6,7 +6,7 @@ const path = require('path');
 const webpack = require('webpack');
 
 // webpack plugins
-var DashboardPlugin = require('webpack-dashboard/plugin');
+const DashboardPlugin = require('webpack-dashboard/plugin');
 
 // config files
 const common = require('./webpack.common.js');
