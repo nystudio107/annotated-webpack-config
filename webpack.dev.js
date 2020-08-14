@@ -64,7 +64,6 @@ const configurePostcssLoader = () => {
             {
                 loader: 'css-loader',
                 options: {
-                    url: false,
                     importLoaders: 2,
                     sourceMap: true
                 }
@@ -75,7 +74,10 @@ const configurePostcssLoader = () => {
             {
                 loader: 'postcss-loader',
                 options: {
-                    sourceMap: true
+                    sourceMap: true,
+                    config: {
+                        path: path.resolve(__dirname),
+                    }
                 }
             }
         ]
