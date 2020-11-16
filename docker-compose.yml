@@ -1,0 +1,113 @@
+version: '3.7'
+
+services:
+  # nginx - web server
+  nginx:
+    build:
+      context: ./docker-config/nginx
+      dockerfile: ./Dockerfile
+    env_file: &env
+      - ./cms/.env
+    init: true
+    ports:
+      - "8000:80"
+    volumes:
+      - cpresources:/var/www/project/cms/web/cpresources
+      - ./cms/web:/var/www/project/cms/web:cached
+  # php - run php-fpm
+  php:
+    build: &php-build
+      context: ./docker-config/php-prod-craft
+      dockerfile: ./Dockerfile
+    depends_on:
+      - "mariadb"
+      - "redis"
+    env_file:
+      *env
+    expose:
+      - "9000"
+    init: true
+    volumes: &php-volumes
+      - cpresources:/var/www/project/cms/web/cpresources
+      - storage:/var/www/project/cms/storage
+      - ./cms:/var/www/project/cms:cached
+      - ./cms/vendor:/var/www/project/cms/vendor:delegated
+      - ./cms/storage/logs:/var/www/project/cms/storage/logs:delegated
+  # php - run php-fpm with xdebug
+  php_xdebug:
+    build:
+      context: ./docker-config/php-dev-craft
+      dockerfile: ./Dockerfile
+    depends_on:
+      - "php"
+    env_file:
+      *env
+    expose:
+      - "9000"
+    init: true
+    user: www-data
+    volumes:
+      *php-volumes
+  # queue - runs queue jobs via php craft queue/listen
+  queue:
+    build:
+      *php-build
+    command: /var/www/project/run_queue.sh
+    depends_on:
+      - "php"
+    env_file:
+      *env
+    expose:
+      - "9001"
+    init: true
+    user: www-data
+    volumes:
+      *php-volumes
+  # mariadb - database
+  mariadb:
+    build:
+      context: ./docker-config/mariadb
+      dockerfile: ./Dockerfile
+    env_file:
+      *env
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: project
+      MYSQL_USER: project
+      MYSQL_PASSWORD: project
+    init: true
+    ports:
+      - "3306:3306"
+    volumes:
+      - db-data:/var/lib/mysql
+      - ./db-seed/:/docker-entrypoint-initdb.d
+  # redis - key/value database for caching & php sessions
+  redis:
+    build:
+      context: ./docker-config/redis
+      dockerfile: ./Dockerfile
+    expose:
+      - "6379"
+    init: true
+  # webpack - frontend build system
+  webpack:
+    build:
+      context: ./docker-config/node-dev-webpack
+      dockerfile: ./Dockerfile
+    env_file:
+      *env
+    init: true
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./tsconfig.json:/var/www/project/tsconfig.json:cached
+      - ./buildchain:/var/www/project/buildchain:cached
+      - ./buildchain/node_modules:/var/www/project/buildchain/node_modules:delegated
+      - ./cms/web:/var/www/project/cms/web:delegated
+      - ./src:/var/www/project/src:cached
+      - ./cms/templates:/var/www/project/cms/templates:cached
+
+volumes:
+  db-data:
+  cpresources:
+  storage:
