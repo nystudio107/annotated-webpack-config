@@ -1,20 +1,19 @@
-TAG?=12-alpine
+TAG?=11
 
 docker:
 	docker build \
 		. \
-		-t nystudio107/node:${TAG} \
+		-t nystudio107/annotated-webpack:${TAG} \
 		--build-arg TAG=${TAG} \
 		--no-cache
 npm:
 	docker container run \
-		--name 11ty \
+		--name annotated-webpack \
 		--rm \
 		-t \
 		-p 8080:8080 \
-		-p 3001:3001 \
 		-v `pwd`:/app \
-		nystudio107/node:${TAG} \
+		nystudio107/annotated-webpack:${TAG} \
 		$(filter-out $@,$(MAKECMDGOALS))
 %:
 	@:

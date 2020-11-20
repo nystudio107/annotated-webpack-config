@@ -1,7 +1,7 @@
-ARG TAG=12-alpine
-FROM node:$TAG
+ARG TAG=11
+FROM nystudio107/node-dev-base:$TAG
 
-WORKDIR /app
+WORKDIR /app/buildchain/
 
 CMD ["build"]
 

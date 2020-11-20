@@ -128,6 +128,7 @@
     "check-types": "tsc",
     "debug": "webpack serve --config webpack.dev.js",
     "dev": "webpack serve --config webpack.dev.js",
+    "install": "npm install",
     "lint": "tsc --noEmit && eslint '../../src/**/*.{js,ts,vue}' --fix"
   },
   "version": "1.1.3"

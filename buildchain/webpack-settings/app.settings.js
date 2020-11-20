@@ -13,17 +13,14 @@ module.exports = {
             '../src/js/app.ts',
             '../src/css/app.pcss',
         ],
-        'lazysizes-wrapper': [
-            '../src/js/utils/lazysizes-wrapper.ts',
-        ],
     },
     extensions: ['.ts', '.js', '.vue', '.json'],
     name: 'Example Project',
     paths: {
-        dist: '../../cms/web/dist/',
+        dist: '../../web/dist/',
     },
     urls: {
-        criticalCss: 'http://example.test/',
+        criticalCss: 'http://localhost:8080/',
         publicPath: () => process.env.PUBLIC_PATH || '/dist/',
     },
 };
