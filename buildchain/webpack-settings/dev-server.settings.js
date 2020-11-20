@@ -6,7 +6,7 @@ require('dotenv').config();
 // settings
 module.exports = {
     contentBase: () => process.env.DEVSERVER_CONTENT_BASE || '../../web/',
-    host: () => process.env.DEVSERVER_HOST || 'localhost',
+    host: () => process.env.DEVSERVER_HOST || '0.0.0.0',
     https: () => process.env.DEVSERVER_HTTPS || false,
     poll: () => process.env.DEVSERVER_POLL || false,
     port: () => process.env.DEVSERVER_PORT || 8080,
