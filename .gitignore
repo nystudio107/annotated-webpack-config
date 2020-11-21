@@ -3,3 +3,4 @@ node_modules
 /web/dist
 /web/sw.*
 /web/favicon.*
+.DS_store
