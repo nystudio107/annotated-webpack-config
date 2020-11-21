@@ -14,10 +14,12 @@ module.exports = {
         ampCriticalHeight: 19200,
         ampCriticalWidth: 600,
         pages: [
+/* Commented out by default because a live server must be  in urls.criticalCss in `app.settings.js` first
             {
                 uri: '',
                 template: 'index'
             },
+*/
         ]
     },
 };
