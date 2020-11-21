@@ -38,7 +38,6 @@
     "core-js": "^3.0.0",
     "lazysizes": "^5.2.2",
     "regenerator-runtime": "^0.13.2",
-    "tailwindcss": "^1.8.12",
     "vue": "^3.0.0",
     "vue-confetti": "^2.0.8"
   },
@@ -97,6 +96,7 @@
     "stylelint": "^13.7.0",
     "stylelint-config-recommended": "^3.0.0",
     "symlink-webpack-plugin": "^0.0.4",
+    "tailwindcss": "^1.8.12",
     "terser-webpack-plugin": "^5.0.0",
     "ts-loader": "^8.0.5",
     "tsconfig-paths-webpack-plugin": "^3.3.0",
