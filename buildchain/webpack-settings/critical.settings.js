@@ -6,7 +6,7 @@ require('dotenv').config();
 // settings
 module.exports = {
     critical: {
-        base: '../cms/web/dist/criticalcss/',
+        base: '../web/dist/criticalcss/',
         suffix: '_critical.min.css',
         criticalHeight: 1200,
         criticalWidth: 1200,
