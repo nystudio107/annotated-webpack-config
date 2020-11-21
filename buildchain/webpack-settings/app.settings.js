@@ -20,7 +20,7 @@ module.exports = {
         dist: '../../web/dist/',
     },
     urls: {
-        criticalCss: 'http://localhost:8080/',
+        criticalCss: 'http://example.test/',
         publicPath: () => process.env.PUBLIC_PATH || '/dist/',
     },
 };
