@@ -11,7 +11,9 @@ module.exports = {
     entry: {
         'app': [
             '../src/js/app.ts',
-            '../src/css/app.pcss',
+            '../src/css/app-base.pcss',
+            '../src/css/app-components.pcss',
+            '../src/css/app-utilities.pcss',
         ],
     },
     extensions: ['.ts', '.js', '.vue', '.json'],
