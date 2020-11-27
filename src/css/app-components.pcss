@@ -1,0 +1,21 @@
+/**
+ * This injects any component classes registered by plugins.
+ *
+ */
+@import 'tailwindcss/components';
+
+/**
+ * Here we add custom component classes; stuff we want loaded
+ * *before* the utilities so that the utilities can still
+ * override them.
+ *
+ */
+@import './components/global.pcss';
+@import './components/typography.pcss';
+@import './components/webfonts.pcss';
+
+/**
+ * Include styles for individual pages
+ *
+ */
+@import './pages/homepage.pcss';
