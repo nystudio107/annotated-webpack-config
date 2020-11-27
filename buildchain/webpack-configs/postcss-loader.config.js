@@ -38,6 +38,8 @@ module.exports = (type = 'modern', settings) => {
                                             path: ['./node_modules'],
                                         }],
                                         TailwindCss('./tailwind.config.js'),
+                                        ['postcss-nested', {
+                                        }],
                                         ...postCssPlugins,
                                     ],
                                 }
@@ -72,11 +74,7 @@ module.exports = (type = 'modern', settings) => {
                         MiniCssExtractPlugin.loader
                     ],
                     [
-                        ['postcss-preset-env', {
-                            autoprefixer: { },
-                            features: {
-                                'nesting-rules': true
-                            }
+                        ['autoprefixer', {
                         }]
                     ],
                 ),
