@@ -12,8 +12,13 @@ module.exports = (type = 'modern', settings) => {
     // common config
     const common = () => ({
         devServer: {
-            contentBase: path.resolve(__dirname, settings.contentBase()),
-            disableHostCheck: true,
+            client: {
+                progress: false,
+            },
+            dev: {
+                publicPath: '/',
+            },
+            firewall: false,
             headers: {
                 'Access-Control-Allow-Origin': '*'
             },
@@ -23,11 +28,13 @@ module.exports = (type = 'modern', settings) => {
             overlay: true,
             port: settings.port(),
             public: settings.public(),
-            publicPath: '/',
-            watchContentBase: true,
-            watchOptions: {
-                poll: !!parseInt(settings.poll()),
-                ignored: /node_modules/,
+            static: {
+                directory: path.resolve(__dirname, settings.contentBase()),
+                publicPath: '/',
+                watch: {
+                    poll: !!parseInt(settings.poll()),
+                    ignored: /node_modules/,
+                },
             },
         },
         devtool: false,
@@ -48,7 +55,6 @@ module.exports = (type = 'modern', settings) => {
                 exclude: /\.(pcss|css)($|\?)/i,
             }),
         ],
-        target: 'web',
     });
     // configs
     const configs = {

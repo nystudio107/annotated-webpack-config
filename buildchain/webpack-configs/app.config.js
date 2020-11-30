@@ -27,6 +27,9 @@ module.exports = (type = 'modern', settings) => {
                 path.resolve(__dirname, '../node_modules'),
             ],
         },
+        stats: {
+            colors: true,
+        },
     });
     // configs
     const configs = {
