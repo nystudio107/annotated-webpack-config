@@ -88,6 +88,7 @@
     "imagemin-webp-webpack-plugin": "^3.3.0",
     "img-loader": "^3.0.0",
     "mini-css-extract-plugin": "^1.2.0",
+    "nodemon": "^2.0.6",
     "postcss": "^8.1.1",
     "postcss-import": "^12.0.0",
     "postcss-loader": "^4.1.0",
@@ -107,7 +108,7 @@
     "webpack": "^5.3.0",
     "webpack-bundle-analyzer": "^4.0.0-rc1",
     "webpack-cli": "^4.1.0",
-    "webpack-dev-server": "^3.3.0",
+    "webpack-dev-server": "^v4.0.0-beta.0",
     "webpack-manifest-plugin": "^3.0.0-rc.0",
     "webpack-merge": "^5.3.0",
     "workbox-webpack-plugin": "^6.0.0-alpha.3"
@@ -127,8 +128,8 @@
   "scripts": {
     "build": "webpack --config webpack.prod.js --progress",
     "check-types": "tsc",
-    "debug": "webpack serve --config webpack.dev.js",
-    "dev": "webpack serve --config webpack.dev.js",
+    "debug": "nodemon",
+    "dev": "nodemon",
     "install": "npm install",
     "lint": "tsc --noEmit && eslint '../../src/**/*.{js,ts,vue}' --fix"
   },
