@@ -2,14 +2,14 @@
 // returns a webpack config object for the manifest plugin
 
 // webpack plugins
-const ManifestPlugin = require('webpack-manifest-plugin');
+const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 
 // return a webpack config
 module.exports = (type = 'modern', settings) => {
     // common config
     const common = (filename) => ({
         plugins: [
-            new ManifestPlugin({
+            new WebpackManifestPlugin({
                     fileName: filename,
                     basePath: settings.basePath,
                     map: (file) => {
