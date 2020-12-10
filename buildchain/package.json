@@ -132,7 +132,6 @@
     "check-types": "tsc",
     "debug": "nodemon",
     "dev": "nodemon",
-    "install": "npm install",
     "lint": "tsc --noEmit && eslint '../../src/**/*.{js,ts,vue}' --fix"
   },
   "version": "1.1.3"

@@ -3,6 +3,6 @@ FROM nystudio107/node-dev-base:$TAG
 
 WORKDIR /app/buildchain/
 
-CMD ["build"]
+CMD ["run build"]
 
-ENTRYPOINT ["npm", "run"]
+ENTRYPOINT ["npm"]
