@@ -20,10 +20,10 @@ Please see the article for details.
 
 #### Development Server
 
-1. Start `webpack-dev-server` via `make npm dev`
+1. Start `webpack-dev-server` via `make npm run dev`
 2. Point your web browser at http://localhost:8080/ show the developer tools JavaScript console
 
 #### Production Build
 
-1. Build the production assets via `make npm build`
+1. Build the production assets via `make npm run build`
 2. The production assets will appear in `web/dist/` after they are built
