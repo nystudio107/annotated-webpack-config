@@ -33,6 +33,7 @@ module.exports = (type = 'modern', settings) => {
             legacy: {
                 ...common(),
                 optimization: {
+                    chunkIds: 'named',
                     minimize: true,
                     minimizer: [
                         new TerserPlugin({
@@ -70,6 +71,7 @@ module.exports = (type = 'modern', settings) => {
             modern: {
                 ...common(),
                 optimization: {
+                    chunkIds: 'named',
                     minimize: true,
                     minimizer: [
                         new TerserPlugin({
