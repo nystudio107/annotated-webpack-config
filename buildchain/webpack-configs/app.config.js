@@ -18,7 +18,6 @@ module.exports = (type = 'modern', settings) => {
         name: pkg.name,
         output: {
             path: path.resolve(__dirname, settings.paths.dist),
-            publicPath: settings.urls.publicPath()
         },
         resolve: {
             alias: settings.alias,

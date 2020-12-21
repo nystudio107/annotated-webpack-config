@@ -60,6 +60,7 @@ module.exports = (type = 'modern', settings) => {
                 },
                 output: {
                     filename: path.join('./js', '[name]-legacy.[contenthash].js'),
+                    publicPath: settings.urls.publicPath(),
                 },
                 plugins: [
                     new MiniCssExtractPlugin({
@@ -84,6 +85,7 @@ module.exports = (type = 'modern', settings) => {
                 },
                 output: {
                     filename: path.join('./js', '[name].[contenthash].js'),
+                    publicPath: settings.urls.publicPath(),
                 },
             },
         }
