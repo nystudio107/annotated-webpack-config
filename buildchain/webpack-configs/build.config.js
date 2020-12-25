@@ -11,6 +11,7 @@ module.exports = (type = 'modern', settings) => {
         entry: {},
         mode: 'production',
         output: {
+            path: path.resolve(__dirname, settings.paths.dist),
             publicPath: settings.urls.publicPath()
         },
         resolve: {

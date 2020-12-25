@@ -60,6 +60,7 @@ module.exports = (type = 'modern', settings) => {
                 },
                 output: {
                     filename: path.join('./js', '[name]-legacy.[contenthash].js'),
+                    path: path.resolve(__dirname, settings.paths.dist),
                     publicPath: settings.urls.publicPath(),
                 },
                 plugins: [
@@ -85,6 +86,7 @@ module.exports = (type = 'modern', settings) => {
                 },
                 output: {
                     filename: path.join('./js', '[name].[contenthash].js'),
+                    path: path.resolve(__dirname, settings.paths.dist),
                     publicPath: settings.urls.publicPath(),
                 },
             },

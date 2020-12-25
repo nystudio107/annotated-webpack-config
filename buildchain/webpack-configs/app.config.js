@@ -16,9 +16,6 @@ module.exports = (type = 'modern', settings) => {
             topLevelAwait: true,
         },
         name: pkg.name,
-        output: {
-            path: path.resolve(__dirname, settings.paths.dist),
-        },
         resolve: {
             alias: settings.alias,
             extensions: settings.extensions,

@@ -46,6 +46,7 @@ module.exports = (type = 'modern', settings) => {
         },
         output: {
             filename: path.join('./js', '[name].js'),
+            path: path.resolve(__dirname, settings.paths.dist),
             publicPath: settings.public() + '/',
         },
         plugins: [
