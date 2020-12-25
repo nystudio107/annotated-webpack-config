@@ -1,4 +1,4 @@
-ARG TAG=12
+ARG TAG=12-alpine
 FROM nystudio107/node-dev-base:$TAG
 
 WORKDIR /app/buildchain/

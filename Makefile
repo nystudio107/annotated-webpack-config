@@ -1,4 +1,4 @@
-TAG?=12
+TAG?=12-alpine
 
 docker:
 	docker build \
