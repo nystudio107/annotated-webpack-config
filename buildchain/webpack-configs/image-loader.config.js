@@ -54,9 +54,6 @@ module.exports = (type = 'modern', settings) => {
                                     loader: 'img-loader',
                                     options: {
                                         plugins: [
-                                            require('imagemin-gifsicle')({
-                                                interlaced: true,
-                                            }),
                                             require('imagemin-mozjpeg')({
                                                 progressive: true,
                                                 arithmetic: false,
