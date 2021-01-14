@@ -10,13 +10,6 @@ module.exports = (type = 'modern', settings) => {
         return (settings.critical.pages.map((row) => {
                 const criticalSrc = settings.urls.criticalCss + row.uri;
                 const criticalDest = settings.critical.base + row.template + settings.critical.suffix;
-                let criticalWidth = settings.critical.criticalWidth;
-                let criticalHeight = settings.critical.criticalHeight;
-                // Handle Google AMP templates
-                if (row.template.indexOf(settings.critical.ampPrefix) !== -1) {
-                    criticalWidth = settings.critical.ampCriticalWidth;
-                    criticalHeight = settings.critical.ampCriticalHeight;
-                }
                 return new CriticalCssPlugin({
                     base: './',
                     src: criticalSrc,
@@ -24,8 +17,8 @@ module.exports = (type = 'modern', settings) => {
                     extract: false,
                     inline: false,
                     minify: true,
-                    width: criticalWidth,
-                    height: criticalHeight,
+                    width: settings.critical.criticalWidth,
+                    height: settings.critical.criticalHeight,
                 })
             })
         );
