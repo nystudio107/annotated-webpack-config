@@ -50,7 +50,6 @@ module.exports = (type = 'modern', settings) => {
             publicPath: settings.public() + '/',
         },
         plugins: [
-            new webpack.HotModuleReplacementPlugin(),
             new webpack.EvalSourceMapDevToolPlugin({
                 test: /\.(m?js|ts)($|\?)/i,
                 exclude: /\.(pcss|css)($|\?)/i,
