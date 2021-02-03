@@ -5,7 +5,7 @@
 process.env.NODE_ENV = process.env.NODE_ENV || 'production';
 
 // webpack config file helpers
-const { buildWebpackConfigs, legacyWebpackConfigs, modernWebpackConfigs } = require('./get-webpack-config.js');
+const { buildWebpackConfigs, legacyWebpackConfigs, modernWebpackConfigs } = require('get-webpack-config');
 
 // production multi-compiler module exports
 module.exports = [
