@@ -8,5 +8,6 @@ module.exports = {
     favicons: {
         logo: '../src/img/favicon-src.png',
         prefix: 'img/favicons/',
+        publicPath: '/dist/img/favicons',
     },
 };

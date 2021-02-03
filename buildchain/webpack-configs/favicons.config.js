@@ -31,7 +31,7 @@ module.exports = (type = 'modern', settings) => {
                     appDescription: pkg.description,
                     developerName: pkg.author.name,
                     developerURL: pkg.author.url,
-                    path: settings.paths.dist,
+                    path: settings.favicons.publicPath,
                 }
             }),
         ],
