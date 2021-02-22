@@ -7,22 +7,18 @@ const path = require('path');
 // settings
 module.exports = {
     alias: {
-        '@css': path.resolve('../src/css'),
-        '@fonts': path.resolve('../src/fonts'),
-        '@img': path.resolve('../src/img'),
-        '@js': path.resolve('../src/js'),
-        '@vue': path.resolve('../src/vue'),
+        '@': path.resolve('../src'),
     },
     copyright: 'Example Company, Inc.',
     entry: {
         'app': [
-            '@js/app.ts',
-            '@css/app-base.pcss',
-            '@css/app-components.pcss',
-            '@css/app-utilities.pcss',
+            '@/js/app.ts',
+            '@/css/app-base.pcss',
+            '@/css/app-components.pcss',
+            '@/css/app-utilities.pcss',
         ],
         'lazysizes-wrapper': [
-            '@js/utils/lazysizes-wrapper.ts',
+            '@/js/utils/lazysizes-wrapper.ts',
         ],
     },
     extensions: ['.ts', '.js', '.vue', '.json'],
