@@ -8,7 +8,7 @@ import {defineAsyncComponent, defineComponent } from 'vue';
 
 export default defineComponent({
   components: {
-    'confetti': defineAsyncComponent(() => import(/* webpackChunkName: "confetti" */ '../vue/Confetti.vue')),
+    'confetti': defineAsyncComponent(() => import(/* webpackChunkName: "confetti" */ '@vue/Confetti.vue')),
   },
   data: () => ({
   }),

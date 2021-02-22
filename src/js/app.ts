@@ -1,4 +1,4 @@
-import App from '../vue/App.vue';
+import App from '@vue/App.vue';
 import { createApp } from 'vue';
 
 // App main
