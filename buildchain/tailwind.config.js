@@ -2,7 +2,7 @@
 module.exports = {
   purge: {
     content: [
-      '../cms/templates/**/*.{twig,html}',
+      '../web/**/*.{twig,html}',
       '../src/vue/**/*.{vue,html}',
     ],
     layers: [
