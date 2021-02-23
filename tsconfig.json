@@ -11,7 +11,7 @@
     "moduleResolution": "node",
     "noEmit": true,
     "noImplicitAny": true,
-    "outDir": "./cms/web/dist/",
+    "outDir": "./web/dist/",
     "paths": {
       "@/*": [
         "./src/*"
