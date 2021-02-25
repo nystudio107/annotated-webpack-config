@@ -16,7 +16,7 @@ module.exports = (type = 'modern', settings) => {
                 progress: false,
             },
             dev: {
-                publicPath: '/',
+                publicPath: settings.public() + '/',
             },
             firewall: false,
             headers: {
