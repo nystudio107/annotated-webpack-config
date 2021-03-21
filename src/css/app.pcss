@@ -1,4 +1,16 @@
 /**
+ * This injects Tailwind's base styles, which is a combination of
+ * Normalize.css and some additional base styles.
+ */
+@import 'tailwindcss/base';
+
+/**
+ * Here we add custom base styles, applied after the tailwind-base
+ * classes
+ *
+ */
+
+/**
  * This injects any component classes registered by plugins.
  *
  */
@@ -19,3 +31,16 @@
  *
  */
 @import './pages/homepage.pcss';
+
+/**
+ * This injects all of Tailwind's utility classes, generated based on your
+ * config file.
+ *
+ */
+@import 'tailwindcss/utilities';
+
+/**
+ * Include vendor css.
+ *
+ */
+@import 'vendor.pcss';
