@@ -2,6 +2,7 @@
 node_modules
 yarn-error.log
 npm-debug.log
+buildchain/package-lock.json
 
 # ASSETS
 /web/dist
