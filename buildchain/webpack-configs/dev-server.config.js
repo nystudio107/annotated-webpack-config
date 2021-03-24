@@ -13,6 +13,7 @@ module.exports = (type = 'modern', settings) => {
     const common = () => ({
         devServer: {
             client: {
+                overlay: true,
                 progress: false,
             },
             dev: {
@@ -25,7 +26,6 @@ module.exports = (type = 'modern', settings) => {
             host: settings.host(),
             hot: true,
             https: !!parseInt(settings.https()),
-            overlay: true,
             port: settings.port(),
             public: settings.public(),
             static: {
