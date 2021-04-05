@@ -1,5 +1,6 @@
 // module exports
 module.exports = {
+  mode: 'jit',
   purge: {
     content: [
       '../web/**/*.{twig,html}',
