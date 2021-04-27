@@ -17,6 +17,13 @@ const FALLBACK_IMAGE_URL = '/offline.svg';
 // eslint-disable-next-line no-restricted-globals,no-underscore-dangle
 precacheAndRoute(self.__WB_MANIFEST || []);
 
+// Ignore /admin requests
+registerRoute(
+    /\/admin/,
+    new NetworkOnly({
+    }),
+);
+
 // Images
 registerRoute(
     /\.(?:png|jpg|jpeg|svg|webp)$/,
