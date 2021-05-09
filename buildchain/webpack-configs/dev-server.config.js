@@ -16,7 +16,7 @@ module.exports = (type = 'modern', settings) => {
                 overlay: true,
                 progress: false,
             },
-            dev: {
+            devMiddleware: {
                 publicPath: '/',
             },
             firewall: false,
